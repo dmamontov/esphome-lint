@@ -6,8 +6,8 @@ substitutions:
   mdns_name: test
 
   # Wifi credentials
-  wifi_ssid: "test"
-  wifi_password: "test"
+  wifi_ssid: "esphome-test"
+  wifi_password: "esphome-test"
 
   # OTA and API
   ota_password: "esphome"
