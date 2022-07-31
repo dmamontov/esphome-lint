@@ -78,13 +78,13 @@ if [ "${10}" = true ]; then
 
     echo Running: find ${2} -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format ${11} --dry-run -i
 
-    find ${2} -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format ${11} --dry-run -i
+    find ${2} -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format-11 ${11} --dry-run -i
     exit_code=$?
 
     if [ "$exit_code" = "0" ]; then
         echo "Clang format ok"
     else
-        echo "Clang format"
+        echo "Clang format error"
         exit $exit_code
     fi
 
