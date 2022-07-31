@@ -42,7 +42,7 @@ inputs:
     required: false
     default: ""
   extra-clang-format-options:
-    description: "Extra options: clang-format $(extra-pytest-options)"
+    description: "Extra options: clang-format $(extra-clang-format-options)"
     required: false
     default: ""
   use-esphome-branch:
