@@ -1,0 +1,24 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  py-lint:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dmamontov/esphome-lint@main
+        with:
+          path: "tests"
+
+  py-lint-branch:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dmamontov/esphome-lint@main
+        with:
+          path: "tests"
+          esphome-version: "dev"
+          use-esphome-branch: true
