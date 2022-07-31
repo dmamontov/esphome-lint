@@ -1,0 +1,54 @@
+############# User configuration #############
+
+substitutions:
+
+  board: esp32doit-devkit-v1
+  mdns_name: test
+
+  # Wifi credentials
+  wifi_ssid: "test"
+  wifi_password: "test"
+
+  # OTA and API
+  ota_password: "esphome"
+  api_password: "esphome"
+
+
+########### End user configuration ###########
+
+
+############# Base configuration #############
+
+esphome:
+  name: $mdns_name
+  platform: ESP32
+  board: $board
+
+# Enable logging
+logger:
+
+# Enable OTA
+ota:
+  password: $ota_password
+
+# Enable WiFi
+wifi:
+  ssid: $wifi_ssid
+  password: $wifi_password
+  fast_connect: on
+
+# Enable Home Assistant API
+api:
+  password: $api_password
+
+########### End base configuration ###########
+
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    update_interval: 60s
+
+button:
+  - platform: restart
+    entity_category: "config"
+    name: "Restart"

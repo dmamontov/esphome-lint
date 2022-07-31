@@ -13,6 +13,8 @@
 # $9 - use-esphome-branch
 # $10 - use-clang-format
 # $11 - extra-clang-format-options
+# $12 - use-esphome-compile
+# $13 - esphome-compile-file
 
 if [ "$9" = true ]; then
   pip3 install git+https://github.com/esphome/esphome.git@${1} --no-cache-dir
@@ -87,3 +89,20 @@ if [ "${10}" = true ]; then
     fi
 
 fi
+
+if [ "$12" = true ]; then
+
+    echo Running: esphome compile ${13}
+
+    esphome compile ${13}
+    exit_code=$?
+
+    if [ "$exit_code" = "0" ]; then
+        echo "Esphome compile ok"
+    else
+        echo "Esphome compile error"
+        exit $exit_code
+    fi
+
+fi
+

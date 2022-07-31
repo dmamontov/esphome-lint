@@ -6,6 +6,7 @@ Based on [python-lint](https://github.com/ricardochaves/python-lint)
 
 This action must be used for application the bids:
 
+- [esphome](https://esphome.io/)
 - [black](https://github.com/psf/black)
 - [pylint](https://www.pylint.org/)
 - [mypy](http://mypy-lang.org/)
@@ -32,6 +33,8 @@ steps:
     with:
       esphome-version: ">=2022.6.2"
       path: "components/my_component"
+      esphome-compile-file: "test.yaml"
+      use-esphome-compile: false
       use-pylint: false
       use-black: false
       use-mypy: false
@@ -57,4 +60,6 @@ black --check $(extra-black-options) $(path)
 mypy --show-error-codes --show-error-context --ignore-missing-imports --pretty --show-error-codes $(extra-mypy-options) $(path)
 
 find $(path) -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format $(extra-clang-format-options) --dry-run -i
+
+esphome compile use-esphome-compile
 ```

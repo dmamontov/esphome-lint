@@ -12,6 +12,8 @@ jobs:
       - uses: dmamontov/esphome-lint@main
         with:
           path: "tests"
+          use-esphome-compile: true
+          esphome-compile-file: "tests/test.yaml"
 
   lint-branch:
     runs-on: "ubuntu-latest"
@@ -22,3 +24,5 @@ jobs:
           path: "tests"
           esphome-version: "dev"
           use-esphome-branch: true
+          use-esphome-compile: true
+          esphome-compile-file: "tests/test.yaml"

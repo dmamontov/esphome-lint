@@ -9,6 +9,10 @@ inputs:
     description: "Component path"
     required: true
     default: "."
+  use-esphome-compile:
+    description: "Use ESPHome compile"
+    required: false
+    default: false
   use-pylint:
     description: "Use Pylint"
     required: false
@@ -45,6 +49,10 @@ inputs:
     description: "Use branch instead of version"
     required: false
     default: false
+  esphome-compile-file:
+    description: "Compile file"
+    required: false
+    default: ""
 
 runs:
   using: "docker"
@@ -61,6 +69,8 @@ runs:
     - ${{ inputs.use-esphome-branch }}
     - ${{ inputs.use-clang-format }}
     - ${{ inputs.extra-clang-format-options }}
+    - ${{ inputs.use-esphome-compile }}
+    - ${{ inputs.esphome-compile-file }}
 branding:
   icon: "terminal"
   color: "blue"
