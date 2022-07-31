@@ -76,7 +76,7 @@ fi
 
 if [ "${10}" = true ]; then
 
-    echo Running: find ${2} -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format ${11} --dry-run -i
+    echo Running: clang-format-11 ${11} --dry-run -i
 
     find ${2} -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format-11 ${11} --dry-run -i
     exit_code=$?

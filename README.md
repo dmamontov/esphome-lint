@@ -59,7 +59,7 @@ black --check $(extra-black-options) $(path)
 
 mypy --show-error-codes --show-error-context --ignore-missing-imports --pretty --show-error-codes $(extra-mypy-options) $(path)
 
-find $(path) -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format $(extra-clang-format-options) --dry-run -i
+find $(path) -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format-11 $(extra-clang-format-options) --dry-run -i
 
 esphome compile use-esphome-compile
 ```
