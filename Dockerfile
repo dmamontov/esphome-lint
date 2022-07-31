@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     libssl-dev \
     libffi-dev \
     python-dev \
-    clang-format
+    clang-format-11
 
 RUN pip3 install pylint \
     black \
